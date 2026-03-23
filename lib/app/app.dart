@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MSG Archive',
+      title: 'MSG Archive for NİS',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
       home: const ArchivePage(),
