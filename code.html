@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MSG Archive - Desktop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "tertiary-dim": "#51516c",
+                "surface-container-highest": "#d9e4ea",
+                "inverse-on-surface": "#9a9d9f",
+                "on-secondary-fixed-variant": "#4e5c71",
+                "secondary-fixed": "#d5e3fc",
+                "outline": "#717c82",
+                "inverse-primary": "#dae2fd",
+                "background": "#f7f9fb",
+                "secondary-fixed-dim": "#c7d5ed",
+                "on-primary-container": "#4a5167",
+                "on-background": "#2a3439",
+                "on-error": "#fff7f6",
+                "error-container": "#fe8983",
+                "on-secondary": "#f8f8ff",
+                "primary-fixed-dim": "#ccd4ee",
+                "tertiary-fixed-dim": "#cbc9e9",
+                "surface-dim": "#cfdce3",
+                "on-secondary-fixed": "#324053",
+                "on-tertiary-container": "#4a4a65",
+                "outline-variant": "#a9b4b9",
+                "secondary": "#526074",
+                "on-tertiary": "#fbf7ff",
+                "on-tertiary-fixed": "#373851",
+                "secondary-container": "#d5e3fc",
+                "surface-variant": "#d9e4ea",
+                "tertiary": "#5d5d78",
+                "primary-fixed": "#dae2fd",
+                "surface-bright": "#f7f9fb",
+                "on-primary-fixed": "#373f54",
+                "tertiary-fixed": "#d9d7f8",
+                "error": "#9f403d",
+                "primary-container": "#dae2fd",
+                "surface-tint": "#565e74",
+                "primary": "#565e74",
+                "on-primary": "#f7f7ff",
+                "on-tertiary-fixed-variant": "#54546f",
+                "primary-dim": "#4a5268",
+                "on-error-container": "#752121",
+                "secondary-dim": "#465468",
+                "surface": "#f7f9fb",
+                "inverse-surface": "#0b0f10",
+                "on-surface-variant": "#566166",
+                "error-dim": "#4e0309",
+                "surface-container-lowest": "#ffffff",
+                "on-surface": "#2a3439",
+                "on-secondary-container": "#455367",
+                "on-primary-fixed-variant": "#535b71",
+                "tertiary-container": "#d9d7f8",
+                "surface-container-high": "#e1e9ee",
+                "surface-container-low": "#f0f4f7",
+                "surface-container": "#e8eff3"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-[#f7f9fb] dark:bg-[#0b0f10] flex justify-between items-center w-full px-6 py-3 border-b border-[#e1e9ee]/20 z-50">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-[#2a3439] dark:text-[#f7f9fb] tracking-tight">MSG Archive</span>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Stored Locally</span>
+</div>
+<div class="flex-1 max-w-xl px-12">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant opacity-50">search</span>
+<input class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/10 focus:ring-primary rounded-lg py-2 pl-10 pr-4 text-sm transition-all" placeholder="Search archive..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-[#565e74] dark:text-[#e1e9ee] hover:bg-[#f0f4f7] dark:hover:bg-[#2a3439] transition-colors duration-200 rounded-lg Active: scale-95 transition-transform">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 text-[#565e74] dark:text-[#e1e9ee] hover:bg-[#f0f4f7] dark:hover:bg-[#2a3439] transition-colors duration-200 rounded-lg Active: scale-95 transition-transform">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 overflow-hidden">
+<!-- Left Panel: File Selection & List (40%) -->
+<section class="w-[40%] bg-surface-container-low flex flex-col border-r border-outline-variant/5">
+<!-- Upload Area -->
+<div class="p-6 space-y-4">
+<div class="group relative flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 rounded-xl p-8 bg-surface-container-lowest hover:border-primary/50 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-4xl text-primary mb-3" style="font-variation-settings: 'FILL' 1;">cloud_upload</span>
+<p class="text-sm font-semibold text-on-surface">Drag and drop .msg files</p>
+<p class="text-xs text-on-surface-variant mt-1">or click to browse your local storage</p>
+<button class="mt-4 px-6 py-2 bg-primary text-on-primary rounded-lg font-semibold text-sm shadow-sm hover:bg-primary-dim transition-all active:scale-95">
+                        Choose File
+                    </button>
+</div>
+</div>
+<!-- Message List -->
+<div class="flex-1 overflow-y-auto px-6 pb-20 space-y-2">
+<h3 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest px-1 mb-4">Recent Archives</h3>
+<!-- Active Item -->
+<div class="group bg-surface-container-lowest p-4 rounded-lg shadow-sm ring-1 ring-primary/20 border-l-4 border-primary transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-bold text-on-surface leading-tight line-clamp-1">Quarterly Project Review &amp; Resource Planning</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">attach_file</span>
+</div>
+<div class="flex justify-between items-end text-xs text-on-surface-variant">
+<div>
+<p class="font-medium text-on-surface">Sarah Mitchell</p>
+<p class="opacity-70">Oct 24, 2023</p>
+</div>
+<p class="bg-surface-container-high px-1.5 py-0.5 rounded text-[10px]">1.4 MB</p>
+</div>
+</div>
+<!-- Inactive Items -->
+<div class="group hover:bg-surface-container-highest/50 p-4 rounded-lg transition-all cursor-pointer border-l-4 border-transparent">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-semibold text-on-surface leading-tight line-clamp-1">Updated Brand Guidelines for 2024</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-sm">attach_file</span>
+</div>
+<div class="flex justify-between items-end text-xs text-on-surface-variant">
+<div>
+<p class="font-medium text-on-surface">Design Team</p>
+<p class="opacity-70">Oct 22, 2023</p>
+</div>
+<p class="bg-surface-container-high px-1.5 py-0.5 rounded text-[10px]">452 KB</p>
+</div>
+</div>
+<div class="group hover:bg-surface-container-highest/50 p-4 rounded-lg transition-all cursor-pointer border-l-4 border-transparent">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-semibold text-on-surface leading-tight line-clamp-1">Re: Client Onboarding - MSG Protocol</span>
+</div>
+<div class="flex justify-between items-end text-xs text-on-surface-variant">
+<div>
+<p class="font-medium text-on-surface">James Wilson</p>
+<p class="opacity-70">Oct 21, 2023</p>
+</div>
+<p class="bg-surface-container-high px-1.5 py-0.5 rounded text-[10px]">120 KB</p>
+</div>
+</div>
+<div class="group hover:bg-surface-container-highest/50 p-4 rounded-lg transition-all cursor-pointer border-l-4 border-transparent">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-semibold text-on-surface leading-tight line-clamp-1">Security Update: New Local Storage Policy</span>
+</div>
+<div class="flex justify-between items-end text-xs text-on-surface-variant">
+<div>
+<p class="font-medium text-on-surface">IT Support</p>
+<p class="opacity-70">Oct 19, 2023</p>
+</div>
+<p class="bg-surface-container-high px-1.5 py-0.5 rounded text-[10px]">34 KB</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Message Preview (60%) -->
+<section class="w-[60%] bg-surface flex flex-col overflow-hidden">
+<div class="flex-1 overflow-y-auto p-12">
+<div class="max-w-3xl mx-auto">
+<!-- Header -->
+<div class="mb-10">
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight leading-tight mb-8">Quarterly Project Review &amp; Resource Planning</h1>
+<div class="grid grid-cols-[100px_1fr] gap-y-4 text-sm">
+<span class="text-on-surface-variant font-medium">From</span>
+<span class="text-on-surface flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-[10px] font-bold text-on-primary-container">SM</span>
+                                Sarah Mitchell <span class="text-on-surface-variant/60">&lt;s.mitchell@msgarchive.io&gt;</span>
+</span>
+<span class="text-on-surface-variant font-medium">To</span>
+<span class="text-on-surface">Internal Strategy Group</span>
+<span class="text-on-surface-variant font-medium">Date</span>
+<span class="text-on-surface">Tuesday, October 24, 2023 at 10:45 AM</span>
+<span class="text-on-surface-variant font-medium">Attachments</span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high text-on-surface text-xs font-semibold rounded-full hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">description</span>
+                                    Q4_Roadmap.pdf
+                                </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high text-on-surface text-xs font-semibold rounded-full hover:bg-surface-container-highest transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">table_chart</span>
+                                    Budget_Draft.xlsx
+                                </span>
+</div>
+</div>
+</div>
+<!-- Email Body Body -->
+<div class="prose prose-sm max-w-none text-on-surface-variant leading-relaxed space-y-4 py-8 border-t border-outline-variant/10">
+<p>Hi Team,</p>
+<p>I hope this email finds you well. As we approach the end of the year, I’ve put together a preliminary draft of our quarterly review and the proposed resource planning for the upcoming cycle.</p>
+<p>Key highlights include:</p>
+<ul class="list-disc pl-5 space-y-2">
+<li>Significant growth in archive processing speeds (+15% YoY).</li>
+<li>A reduction in local storage footprint due to improved indexing.</li>
+<li>Resource allocation shifts towards the mobile viewer module.</li>
+</ul>
+<p>Please review the attached roadmap and budget spreadsheet before our meeting on Friday. I'd like to finalize these numbers so we can move forward with implementation early next month.</p>
+<p>Best regards,<br/>Sarah Mitchell<br/><span class="font-bold text-primary">Senior Project Lead</span></p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-0 w-full flex justify-end items-center px-6 py-2 z-40 bg-[#f0f4f7] dark:bg-[#0b0f10] border-t border-[#e1e9ee]/10 text-xs font-['Inter'] tracking-wide text-[#566166] dark:text-[#e1e9ee]">
+<div class="flex items-center gap-6">
+<a class="opacity-60 hover:text-[#2a3439] dark:hover:text-white transition-opacity" href="#">Privacy Policy</a>
+<a class="opacity-60 hover:text-[#2a3439] dark:hover:text-white transition-opacity" href="#">Terms of Service</a>
+</div>
+</footer>
+</body></html>
